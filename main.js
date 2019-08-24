@@ -3,8 +3,11 @@
 // 允许不理解，因为可能是一个全新概念需要用已有的概念去扩充。
 // 对于不理解的概念可以采用追根究底的方式挖掘到一直的概念。
 
-let understand = (context, input) => {
+class AI {
+  understand = (context, input) => {
 
+  }
+  读 = fs.readFile()
+
+  说 = console.log;
 }
-
-let iwant = dosomething => console.log(`我要${dosomething}`);
