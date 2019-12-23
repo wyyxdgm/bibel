@@ -1,8 +1,13 @@
 step = require('step2');
 
 Dao('order').create = (data) => {
+  // 随机订单号，位数固定
   data.order_no = Helper.buildOrderNo();
   // let { user_id } = data;
+  // $survey.query(data.user_id)
+  // .findOrderBuySurvey().check.is.not.empty
+  // .then.$order.create()
+  // .then.$orderProuct.createWithRe({order_id: re.insertId,order_product:data.order_product})
   return step(Dao('survey').query(_.pick(data, 'user_id')), `获取 问卷(user_id=${data.user_id})`)
     .ifFinedOne(Helper.getOrderParamsFromSurvey, '没有问卷数据')
     .step(Dao('order')._create).catchAsString(err => `错误信息：${err}`)
